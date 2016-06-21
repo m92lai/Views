@@ -1,12 +1,5 @@
-//
-//  AppDelegate.m
-//  Views
-//
-//  Created by Michael Lai on 6/21/16.
-//  Copyright (c) 2016 Michael Lai. All rights reserved.
-//
-
 #import "AppDelegate.h"
+#import "ViewsController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +9,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.window.rootViewController = [[ViewsController alloc] init];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
