@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "ViewsController.h"
+#import "NeighbourhoodViewController.h"
 
 @interface AppDelegate ()
 
@@ -11,7 +11,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.window.rootViewController = [[ViewsController alloc] init];
+    self.window.rootViewController = [[NeighbourhoodViewController alloc] init];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
