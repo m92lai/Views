@@ -10,4 +10,8 @@
 
 @interface ListingDetailsViewController : UIViewController
 
+@property (assign, nonatomic) NSInteger listingIndex;
+
+- (id)initWithListingIndex:(NSInteger)listingIndex;
+
 @end

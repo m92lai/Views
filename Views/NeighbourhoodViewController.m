@@ -7,7 +7,8 @@
 
 @implementation NeighbourhoodViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     self.pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
@@ -23,7 +24,8 @@
     [self.pageVC didMoveToParentViewController:self];
 }
 
-- (ListingViewController *)viewControllerAtIndex:(NSUInteger)index {
+- (ListingViewController *)viewControllerAtIndex:(NSUInteger)index
+{
     
     ListingViewController *listingVC = [[ListingViewController alloc] init];
     listingVC.index = index;

@@ -14,11 +14,12 @@
 
 @implementation ListingViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.contentVC = [[ListingContentViewController alloc] init];
-    self.detailsVC = [[ListingDetailsViewController alloc] init];
+    self.detailsVC = [[ListingDetailsViewController alloc] initWithListingIndex:self.index];
     NSArray *viewControllers = [NSArray arrayWithObject:self.contentVC];
     
     self.pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationVertical options:nil];
