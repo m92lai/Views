@@ -1,11 +1,3 @@
-//
-//  ContentViewController.m
-//  
-//
-//  Created by Michael Lai on 6/27/16.
-//
-//
-
 #import "ListingContentViewController.h"
 
 @interface ListingContentViewController ()

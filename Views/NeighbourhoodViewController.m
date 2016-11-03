@@ -1,16 +1,29 @@
 #import "NeighbourhoodViewController.h"
 #import "ListingViewController.h"
+#import "ViewsClient.h"
 
 @interface NeighbourhoodViewController ()
+
+@property (nonatomic, strong) ViewsClient *client;
+@property (nonatomic, strong) NSArray *listings;
 
 @end
 
 @implementation NeighbourhoodViewController
 
+- (id)initWithNeighbourhood:(Neighbourhood *)neighourhood
+{
+    if (self = [super init]) {
+        _client = [[ViewsClient alloc] init];
+        _listings = [_client fetchListings:neighourhood];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.automaticallyAdjustsScrollViewInsets = NO; 
     self.pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageVC.dataSource = self;
     self.pageVC.view.frame = self.view.bounds;
@@ -26,8 +39,7 @@
 
 - (ListingViewController *)viewControllerAtIndex:(NSUInteger)index
 {
-    
-    ListingViewController *listingVC = [[ListingViewController alloc] init];
+    ListingViewController *listingVC = [[ListingViewController alloc] initWithListing:[_listings objectAtIndex:index]];
     listingVC.index = index;
     return listingVC;
 }
@@ -47,7 +59,7 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     
     NSUInteger index = [(ListingViewController *)viewController index];
-    if (index == 5)
+    if (index == ([_listings count] - 1))
     {
         return nil;
     }

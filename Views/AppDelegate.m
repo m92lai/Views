@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "NeighbourhoodViewController.h"
+#import "NeighbourhoodSelectionViewController.h"
 
 @interface AppDelegate ()
 
@@ -10,9 +10,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    self.window.rootViewController = [[NeighbourhoodViewController alloc] init];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    NeighbourhoodSelectionViewController *rootVC = [[NeighbourhoodSelectionViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];
+    navigationController.navigationBar.hidden = YES;
+    
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }
